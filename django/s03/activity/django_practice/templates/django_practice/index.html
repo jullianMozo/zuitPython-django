@@ -1,0 +1,16 @@
+{% if groceryItem_list and not user.is_anonymous %}
+<h1>Welcome {{user.first_name}} {{user.last_name}}</h1>
+<ul>
+    {% for groceryItem in groceryItem_list %}
+        <li><a href="/django_practice/{{ groceryItem.id }}/">{{ groceryItem.item_name }}</a></li>
+    {% endfor %}
+</ul>
+{% elif not groceryItem_list and user.is_authenticated %}
+<p>No items have been created</p>    
+{% else %}
+<h1>You are not authorized to access this page</h1>
+<p>kindly login <a href="'login'">here</a></p>
+{% endif %}
+
+
+

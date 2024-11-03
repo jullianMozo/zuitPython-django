@@ -1,0 +1,11 @@
+{% if groceryItem_list %}
+    <ul>
+        {% for groceryItem in groceryItem_list %}
+            <li><a href="/django_practice/{{ groceryItem.id }}/">{{ groceryItem.item_name }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No items have been created</p>
+{% endif %}
+
+

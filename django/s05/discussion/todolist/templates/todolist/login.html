@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="col-6">
+			<h1 class="text-center my-3">Login</h1>
+			{% if error == True %}
+				<p class="text-danger">Invalid user credentials, chec your username and password</p>
+			{% endif %}
+
+			<form action="{% url 'todolist:login' %}" method="post">
+				{% csrf_token %}
+				<div class="mb-3">
+					<label for="username">Username:</label>
+					<input type="text" class="form-control" id="username" name="username" value="{{ username }}" maxlength="20" required>
+				</div>
+				<div class="mb-3">
+					<label for="password">Password:</label>
+					<input type="text" class="form-control" id="password" name="password" value="{{ password }}" maxlength="20" required>
+				</div>
+				<div class="text-center">
+					<input class="btn btn-success" type="submit" value="Login">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}
+</div>
